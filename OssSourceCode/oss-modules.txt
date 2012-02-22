@@ -1,0 +1,17 @@
+The Teambox Manager makes use of some various Open Source pieces of software/libraries. In conformance to the various licenses involved, we provide the original source code as well as the modifications we made (when applicable).
+
+Component		License type			Ref
+---------		------------			-------------------------------------------------------------------
+CpGetOpt		LGPL				http://www.codeproject.com/KB/cs/geoptfordotnet.aspx
+Wizard			Custom 1			http://www.differentpla.net/content/2005/02/implementing-wizard-c
+SQLite			Public Domain			http://sqlite.phxsoftware.com/
+ShellLib		Microsoft Public License	http://www.codeproject.com/KB/shell/csdoesshell1.aspx
+ApplicationMonitor	BSD				http://www.codeproject.com/KB/cs/uim.aspx
+OutlookDataObject	CPOL				http://www.codeproject.com/KB/office/outlook_drag_drop_in_cs.aspx
+XpTabControl		CPOL				http://www.codeproject.com/KB/tabs/ThemedBottomTabNET.aspx
+
+Custom licenses description
+---------------------------
+1: Mon, 2007-08-06 11:41 — roger
+Unless specified otherwise, all source code published on the differentpla.net website is available under the following license terms: Do what you want with it, but don't claim you wrote it, and it's not my fault if it doesn't work.
+
