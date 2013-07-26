@@ -14,7 +14,6 @@ namespace kwm
 {
     public partial class Credentials : UserControl
     {
-        private const String DefaultKpsAddress = "tbsos01.teambox.co";
         public String Token = null;
 
         /// <summary>
@@ -28,7 +27,6 @@ namespace kwm
         public Credentials()
         {
             InitializeComponent();
-            txtKpsAddress.Text = DefaultKpsAddress;
         }
 
         /// <summary>
@@ -44,22 +42,6 @@ namespace kwm
             // If KpsAddr is empty, KPSAddress is automatically set to 
             // a default value.
             KpsAddress = reg.KpsAddr;
-        }
-
-        private void chkUseDefaultServer_CheckedChanged(object sender, EventArgs e)
-        {
-            txtKpsAddress.Enabled = !chkUseDefaultServer.Checked;
-
-            if (chkUseDefaultServer.Checked)
-            {
-                // Overwrite what was in the textbox with the default KPS.
-                txtKpsAddress.Text = DefaultKpsAddress;
-                txtUsername.Select();
-            }
-            else
-            {
-                txtKpsAddress.Select();
-            }
         }
 
         /// <summary>
@@ -88,32 +70,27 @@ namespace kwm
         {
             get
             {
-                if (chkUseDefaultServer.Checked)
-                    return DefaultKpsAddress;
-                else
-                    return txtKpsAddress.Text;
+                return txtKpsAddress.Text;
             }
             set
             {
-                if (value == "")
-                    value = DefaultKpsAddress;
-
-                chkUseDefaultServer.Checked = (value == DefaultKpsAddress);
                 txtKpsAddress.Text = value;
             }
         }
+
+        private Boolean m_signinMode;
 
         public Boolean SigninMode
         {
             get
             {
-                return (chkUseDefaultServer.Visible && txtKpsAddress.Visible);
+                return m_signinMode;
             }
             set
             {
-                chkUseDefaultServer.Visible = value;
-                txtKpsAddress.Visible = value;
+                m_signinMode = value;
                 lblServer.Visible = value;
+
                 if (value)
                 {
                     lblUserName.Text = "Login:";
@@ -126,20 +103,17 @@ namespace kwm
                 }
             }
         }
+
         public void ResetError()
         {
-            KPSAdressLBL.ForeColor = Color.Black;
             lblPassword.ForeColor = Color.Black;
             lblUserName.ForeColor = Color.Black;
-            ErrorMsgTip.SetToolTip(KPSAdressLBL, "");
             ErrorMsgTip.SetToolTip(lblPassword, "");
             ErrorMsgTip.SetToolTip(lblUserName, "");
         }
 
         public void SetServerError(String errorStr)
         {
-            KPSAdressLBL.ForeColor = Color.Red;
-            ErrorMsgTip.SetToolTip(KPSAdressLBL, errorStr);
         }
 
         public void SetCredError(String errorStr)
@@ -162,7 +136,7 @@ namespace kwm
             cmd.Info.kps_net_addr = KpsAddress;
             cmd.Info.kps_port_num = 443;
             return cmd;
-	}
+        }
 
         /// <summary>
         /// Save the KPS address, login and ticket to the registry if 
@@ -178,7 +152,6 @@ namespace kwm
                 reg.KpsUserName = UserName;
                 reg.KpsLoginToken = Token;
             }
-
             else
             {
                 reg.Clear();

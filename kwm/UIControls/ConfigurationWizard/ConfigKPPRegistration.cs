@@ -72,8 +72,6 @@ namespace kwm
             try
             {
                 e.Cancel = true;
-                // Hardcode freemium address for now
-                this.creds.KpsAddress = "tbsos01.teambox.co";
                 
                 WmWinRegistry reg = WmWinRegistry.Spawn();
                 if (!(string.IsNullOrEmpty(reg.FreemiumKpsAddr)))
@@ -82,9 +80,10 @@ namespace kwm
                 // Must be disabled after changing the creds.KpsAddress property
                 this.Enabled = false;
 
+                string addr = this.creds.KpsAddress;
                 string email = this.creds.UserName;
                 string pwd = this.creds.Password;
-                string ws_url = "https://" + this.creds.KpsAddress + "/freemium/registration";
+                string ws_url = "http://" + this.creds.KpsAddress + "/freemium/registration";
 
                 string post_params = "";
 

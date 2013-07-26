@@ -443,34 +443,6 @@ namespace kwm.Utils
             catch (Exception) { }
         }
 
-        /// <summary>
-        /// Return true if the Otc component has been installed, false otherwise
-        /// or on any error.
-        /// </summary>
-        public static bool IsOtcInstalled
-        {
-            get
-            {
-                RegistryKey key = null;
-                try
-                {
-                    key = Registry.LocalMachine.OpenSubKey(Base.GetKwmRegKeyString() + "\\Components");
-                    if (key == null) return false;
-
-                    int val;
-                    if (Int32.TryParse(key.GetValue("OutlookConnector", "0") as String, out val))
-                        return val > 0;
-
-                    return false;
-                }
-                finally
-                {
-                    if (key != null) key.Close();
-                }
-
-            }
-        }
-
         public static void InitResourceMngr(Assembly assembly)
         {
             m_rm = new ResourceManager("kwm.ressources", assembly);

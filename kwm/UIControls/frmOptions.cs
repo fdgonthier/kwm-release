@@ -54,8 +54,6 @@ namespace kwm
             txtKasAddr.Text = Misc.ApplicationSettings.CustomKasAddress;
             txtKasPort.Text = Misc.ApplicationSettings.CustomKasPort;
 
-            chkUseCustomKas.Checked = Misc.ApplicationSettings.UseCustomKas;
-
             chkShowNotification.Checked = Misc.ApplicationSettings.ShowNotification;
             chkPreserveFileHistory.Checked = !Misc.ApplicationSettings.NewKwsThinKfsDefaultFlag;
 
@@ -64,8 +62,6 @@ namespace kwm
             txtNotifDuration.Text = delay.ToString();
 
             UpdateNotifDurationStatus();
-
-            KppMsoDebugChecked = chkKppMsoLogging.Checked;
 
             String storePath = Misc.ApplicationSettings.KfsStorePath;
             if (storePath == "")
@@ -79,20 +75,6 @@ namespace kwm
             }
 
             m_ignoreStorePathRadioChange = false;
-
-            if (Misc.IsOtcInstalled)
-            {
-                chkKppMsoLogging.Enabled = true;
-                optionTabs.TabPages["tabTOC"].Enabled = true; 
-                LoadOtcSettings();
-            }
-            else
-            {
-                chkKppMsoLogging.Enabled = false;
-                optionTabs.TabPages["tabTOC"].Enabled = false;
-            }
-
-            UpdateConnectorEnabledStatus();
         }
 
         /// <summary>
@@ -113,8 +95,6 @@ namespace kwm
 
             Misc.ApplicationSettings.CustomKasAddress = txtKasAddr.Text;
             Misc.ApplicationSettings.CustomKasPort = txtKasPort.Text;
-            Misc.ApplicationSettings.UseCustomKas = chkUseCustomKas.Checked;
-
             Misc.ApplicationSettings.ShowNotification = chkShowNotification.Checked;
             Misc.ApplicationSettings.NewKwsThinKfsDefaultFlag = !chkPreserveFileHistory.Checked;
 
@@ -124,27 +104,6 @@ namespace kwm
                 Misc.ApplicationSettings.KfsStorePath = "";
 
             Misc.ApplicationSettings.Save();
-
-            if (Misc.IsOtcInstalled)
-                SaveOtcSetting();
-        }
-
-        private void LoadOtcSettings()
-        {
-            OtcSettings settings = OtcSettings.Spawn();
-            chkOtcEnabled.Checked = settings.OtcEnabledFlag;
-            chkUseSkurl.Checked = settings.SkurlEnabledFlag;
-            chkKppMsoLogging.Checked = settings.LogToFileFlag;
-        }
-
-        private void SaveOtcSetting()
-        {
-            OtcSettings settings = OtcSettings.Spawn();
-            settings.OtcEnabledFlag = chkOtcEnabled.Checked;
-            settings.SkurlEnabledFlag = chkUseSkurl.Checked;
-            settings.LogToFileFlag = chkKppMsoLogging.Checked;
-            settings.AmSettings = amSettings.Settings;
-            settings.WriteRegistry();
         }
 
         /// <summary>
@@ -157,14 +116,12 @@ namespace kwm
             {
                 // Default (KppMso + Kwm File + Kwm Console);
                 case 1:
-                    chkKppMsoLogging.Checked = true;
                     chkEnableDebugging.Checked = true;
                     chkLogToFile.Checked = true;
                     ktlsNone.Checked = true;
                     break;
                 // Maximum
                 case 2:
-                    chkKppMsoLogging.Checked = true;
                     chkEnableDebugging.Checked = true;
                     chkLogToFile.Checked = true;
                     ktlsDebug.Checked = true;
@@ -172,18 +129,11 @@ namespace kwm
                 // None
                 case 0:
                 default:
-                    chkKppMsoLogging.Checked = false;
                     chkEnableDebugging.Checked = false;
                     chkLogToFile.Checked = false;
                     ktlsNone.Checked = true;
                     break;
             }
-        }
-
-        private void chkUseCustomKas_CheckedChanged(object sender, EventArgs e)
-        {
-            txtKasAddr.Enabled = chkUseCustomKas.Checked;
-            txtKasPort.Enabled = chkUseCustomKas.Checked;
         }
 
         private void txtKasPort_Validating(object sender, CancelEventArgs e)
@@ -279,48 +229,6 @@ namespace kwm
             txtNotifDuration.Enabled = chkShowNotification.Checked;
         }
 
-        private void UpdateConnectorEnabledStatus()
-        {
-            chkUseSkurl.Enabled = chkOtcEnabled.Checked;
-            amSettings.Enabled = chkOtcEnabled.Checked;
-        }
-
-        private void chkOtcEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                UpdateConnectorEnabledStatus();
-            }
-            catch (Exception ex)
-            {
-                Base.HandleException(ex);
-            }   
-        }
-
-        private void chkSkurlEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                UpdateConnectorEnabledStatus();
-            }
-            catch (Exception ex)
-            {
-                Base.HandleException(ex);
-            }   
-        }
-
-        private void chkUseAttachMngt_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                UpdateConnectorEnabledStatus();
-            }
-            catch (Exception ex)
-            {
-                Base.HandleException(ex);
-            }  
-        }
-
         private void helpThinKfs_Click(object sender, EventArgs e)
         {
             Base.ShowHelpTooltip("This option allows you to control the \"Preserve file history\" setting when creating new " + Base.GetKwsesString() + ".", sender as Control);
@@ -336,6 +244,11 @@ namespace kwm
             {
                 Base.HandleException(ex);
             } 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

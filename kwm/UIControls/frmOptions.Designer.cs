@@ -31,26 +31,17 @@ namespace kwm
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.optionTabs = new System.Windows.Forms.TabControl();
-            this.tabTOC = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.amSettings = new Tbx.Utils.ucAmSettings();
-            this.label6 = new System.Windows.Forms.Label();
-            this.chkOtcEnabled = new System.Windows.Forms.CheckBox();
-            this.chkUseSkurl = new System.Windows.Forms.CheckBox();
             this.tabSupport = new System.Windows.Forms.TabPage();
-            this.btnViewKcsLogs = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chkUseCustomKas = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKasPort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtKasAddr = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnViewKcsLogs = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cboLogLevel = new System.Windows.Forms.ComboBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.chkKppMsoLogging = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ktlsDebug = new System.Windows.Forms.RadioButton();
             this.ktlsMin = new System.Windows.Forms.RadioButton();
@@ -69,6 +60,7 @@ namespace kwm
             this.rbFileStoreMyDocs = new System.Windows.Forms.RadioButton();
             this.txtCustomStorePath = new System.Windows.Forms.TextBox();
             this.boxEvent = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNotifDuration = new System.Windows.Forms.TextBox();
@@ -78,12 +70,9 @@ namespace kwm
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CustomPathBrowseDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.optionTabs.SuspendLayout();
-            this.tabTOC.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.tabSupport.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabAdvanced.SuspendLayout();
@@ -96,76 +85,24 @@ namespace kwm
             // 
             // optionTabs
             // 
-            this.optionTabs.Controls.Add(this.tabTOC);
             this.optionTabs.Controls.Add(this.tabSupport);
             this.optionTabs.Controls.Add(this.tabAdvanced);
             resources.ApplyResources(this.optionTabs, "optionTabs");
             this.optionTabs.Name = "optionTabs";
             this.optionTabs.SelectedIndex = 0;
             // 
-            // tabTOC
-            // 
-            this.tabTOC.Controls.Add(this.groupBox5);
-            resources.ApplyResources(this.tabTOC, "tabTOC");
-            this.tabTOC.Name = "tabTOC";
-            this.tabTOC.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.amSettings);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.chkOtcEnabled);
-            this.groupBox5.Controls.Add(this.chkUseSkurl);
-            resources.ApplyResources(this.groupBox5, "groupBox5");
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.TabStop = false;
-            // 
-            // amSettings
-            // 
-            resources.ApplyResources(this.amSettings, "amSettings");
-            this.amSettings.Name = "amSettings";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // chkOtcEnabled
-            // 
-            resources.ApplyResources(this.chkOtcEnabled, "chkOtcEnabled");
-            this.chkOtcEnabled.Name = "chkOtcEnabled";
-            this.chkOtcEnabled.UseVisualStyleBackColor = true;
-            this.chkOtcEnabled.CheckedChanged += new System.EventHandler(this.chkOtcEnabled_CheckedChanged);
-            // 
-            // chkUseSkurl
-            // 
-            resources.ApplyResources(this.chkUseSkurl, "chkUseSkurl");
-            this.chkUseSkurl.Name = "chkUseSkurl";
-            this.chkUseSkurl.UseVisualStyleBackColor = true;
-            this.chkUseSkurl.CheckedChanged += new System.EventHandler(this.chkSkurlEnabled_CheckedChanged);
-            // 
             // tabSupport
             // 
-            this.tabSupport.Controls.Add(this.btnViewKcsLogs);
             this.tabSupport.Controls.Add(this.groupBox3);
             this.tabSupport.Controls.Add(this.groupBox7);
-            this.tabSupport.Controls.Add(this.groupBox4);
             this.tabSupport.Controls.Add(this.groupBox2);
             this.tabSupport.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.tabSupport, "tabSupport");
             this.tabSupport.Name = "tabSupport";
             this.tabSupport.UseVisualStyleBackColor = true;
             // 
-            // btnViewKcsLogs
-            // 
-            resources.ApplyResources(this.btnViewKcsLogs, "btnViewKcsLogs");
-            this.btnViewKcsLogs.Name = "btnViewKcsLogs";
-            this.btnViewKcsLogs.UseVisualStyleBackColor = true;
-            this.btnViewKcsLogs.Click += new System.EventHandler(this.btnViewKcsLogs_Click);
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.chkUseCustomKas);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtKasPort);
             this.groupBox3.Controls.Add(this.label2);
@@ -173,13 +110,6 @@ namespace kwm
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
-            // 
-            // chkUseCustomKas
-            // 
-            resources.ApplyResources(this.chkUseCustomKas, "chkUseCustomKas");
-            this.chkUseCustomKas.Name = "chkUseCustomKas";
-            this.chkUseCustomKas.UseVisualStyleBackColor = true;
-            this.chkUseCustomKas.CheckedChanged += new System.EventHandler(this.chkUseCustomKas_CheckedChanged);
             // 
             // label1
             // 
@@ -204,12 +134,20 @@ namespace kwm
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.btnViewKcsLogs);
             this.groupBox7.Controls.Add(this.btnApply);
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.cboLogLevel);
             resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
+            // 
+            // btnViewKcsLogs
+            // 
+            resources.ApplyResources(this.btnViewKcsLogs, "btnViewKcsLogs");
+            this.btnViewKcsLogs.Name = "btnViewKcsLogs";
+            this.btnViewKcsLogs.UseVisualStyleBackColor = true;
+            this.btnViewKcsLogs.Click += new System.EventHandler(this.btnViewKcsLogs_Click);
             // 
             // btnApply
             // 
@@ -233,19 +171,6 @@ namespace kwm
             resources.GetString("cboLogLevel.Items2")});
             resources.ApplyResources(this.cboLogLevel, "cboLogLevel");
             this.cboLogLevel.Name = "cboLogLevel";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.chkKppMsoLogging);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // chkKppMsoLogging
-            // 
-            resources.ApplyResources(this.chkKppMsoLogging, "chkKppMsoLogging");
-            this.chkKppMsoLogging.Name = "chkKppMsoLogging";
-            this.chkKppMsoLogging.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -375,6 +300,7 @@ namespace kwm
             // 
             // boxEvent
             // 
+            this.boxEvent.Controls.Add(this.label6);
             this.boxEvent.Controls.Add(this.pictureBox1);
             this.boxEvent.Controls.Add(this.label5);
             this.boxEvent.Controls.Add(this.txtNotifDuration);
@@ -382,6 +308,11 @@ namespace kwm
             resources.ApplyResources(this.boxEvent, "boxEvent");
             this.boxEvent.Name = "boxEvent";
             this.boxEvent.TabStop = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // pictureBox1
             // 
@@ -394,6 +325,7 @@ namespace kwm
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtNotifDuration
             // 
@@ -444,16 +376,11 @@ namespace kwm
             this.Name = "frmOptions";
             this.ShowInTaskbar = false;
             this.optionTabs.ResumeLayout(false);
-            this.tabTOC.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.tabSupport.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -487,8 +414,6 @@ namespace kwm
         private System.Windows.Forms.CheckBox chkLogToFile;
         private System.Windows.Forms.GroupBox boxEvent;
         private System.Windows.Forms.CheckBox chkShowNotification;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox chkKppMsoLogging;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboLogLevel;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -503,7 +428,6 @@ namespace kwm
         private System.Windows.Forms.RadioButton rbFileStoreCustom;
         private System.Windows.Forms.FolderBrowserDialog CustomPathBrowseDialog;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox chkUseCustomKas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKasPort;
         private System.Windows.Forms.Label label2;
@@ -512,13 +436,8 @@ namespace kwm
         private System.Windows.Forms.TextBox txtNotifDuration;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblRestart;
-        private System.Windows.Forms.TabPage tabTOC;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox chkOtcEnabled;
-        private System.Windows.Forms.CheckBox chkUseSkurl;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkPreserveFileHistory;
         private System.Windows.Forms.PictureBox helpThinKfs;
-        private Tbx.Utils.ucAmSettings amSettings;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8CDC4B09-D50D-4197-978F-4EC0524BCB50}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -349,6 +349,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LicenseRestrictionMsgBox.resx">
       <DependentUpon>LicenseRestrictionMsgBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
@@ -356,6 +357,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ucGoldRequired.resx">
       <DependentUpon>ucGoldRequired.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -370,6 +372,7 @@
     <EmbeddedResource Include="Resources\filesave.png" />
     <EmbeddedResource Include="Resources\freehand.bmp" />
     <EmbeddedResource Include="Resources\line.bmp" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\btnAddFiles.png" />
     <None Include="Resources\%24this.BackgroundImage.bmp" />
     <None Include="Resources\1.jpg" />

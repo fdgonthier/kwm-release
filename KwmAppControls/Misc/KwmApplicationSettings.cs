@@ -76,7 +76,7 @@ namespace kwm.Utils
 
         [UserScopedSettingAttribute()]
         [SettingsManageabilityAttribute(SettingsManageability.Roaming)]
-        [DefaultSettingValueAttribute("false")]
+        [DefaultSettingValueAttribute("true")]
         public bool UseCustomKas
         {
             get { return (bool)this["UseCustomKas"]; }

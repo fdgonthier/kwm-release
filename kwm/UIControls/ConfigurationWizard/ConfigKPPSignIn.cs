@@ -20,7 +20,6 @@ namespace kwm
             get { return base.Enabled; }
             set
             {
-
                 if (value)
                 {
                     if (m_skippedRegistration)
@@ -99,7 +98,6 @@ namespace kwm
                 Base.HandleException(ex);
             }
         }
-
 
         private void ConfigKPPSignIn_WizardNext(object sender, WizardPageEventArgs e)
         {
